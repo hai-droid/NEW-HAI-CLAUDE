@@ -1,0 +1,18 @@
+﻿date,phase,channel,type,topic,owner,status
+2026-10-06,0-Prep,Infra,Setup,"MMP + SDKs + pixels; event QA",Dev,todo
+2026-10-08,0-Prep,Legal,Review,"Privacy policy, ToS, Data Safety, trademark check",Legal,todo
+2026-10-12,1-Pre,Meta,Paid,"Waitlist Leads - A/B 4 big ideas x 3 segments",Media,todo
+2026-10-13,1-Pre,Instagram,Organic,"המדריך לטלפון הראשון #1: מאיזה גיל?",Content,todo
+2026-10-15,1-Pre,TikTok,Organic,"Reel: 3 דברים שאף אחד לא אומר על הטלפון הראשון",Content,todo
+2026-10-19,1-Pre,Outreach,Partnerships,"פנייה ל-30 ועדי הורים + 15 יועצות",BizDev,todo
+2026-10-20,1-Pre,Creators,Production,"6-8 יוצרים מקבלים גישה מוקדמת וצילום",Influencer,todo
+2026-10-27,1-Pre,PR,Prep,"ערכת עיתונות + מגע מוקדם עם כתבים",PR,todo
+2026-11-06,1-Pre,Strategy,Decision,"בחירת רעיון מרכזי מנצח לפי נתוני A/B",Strategy,todo
+2026-11-09,2-Launch,All,Launch,"🚀 יום השקה: חנויות + מייל/SMS לרשימת המתנה + כל הקמפיינים",All,todo
+2026-11-09,2-Launch,Creators,Paid,"פרסומי יוצרים ב-48 שעות + Spark/Partnership Ads",Influencer,todo
+2026-11-10,2-Launch,PR,Earned,"הודעה לעיתונות",PR,todo
+2026-11-16,2-Launch,All,Optimization,"ריענון קריאייטיב #1 + העברת תקציב לפלח מנצח",Media,todo
+2026-11-23,3-Hanukkah,All,Paid,"קריאייטיב חנוכה + CPP חנוכה + הגדלת תקציב",Media,todo
+2026-11-25,3-Hanukkah,Outreach,Referral,"דחיפת 'כל הכיתה' לשגרירים",Growth,todo
+2026-12-04,3-Hanukkah,All,Paid,"🕎 שיא תקציב - ימי החג (4-12.12)",Media,todo
+2026-12-13,4-Scale,Analytics,Report,"סיכום השקה + Cohort analysis",Analytics,todo

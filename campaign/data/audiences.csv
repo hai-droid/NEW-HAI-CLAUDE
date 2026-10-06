@@ -1,0 +1,19 @@
+﻿platform,audience_name,segment,type,geo,age_min,age_max,targeting,exclusions,phase,budget_share
+Meta,A_Parents_8-12,A,Detailed,IL,30,50,"Parents with preteens (08-12) + Parents with early school-age children (06-08)","child_linked",Launch,22%
+Meta,B_Parents_Teens,B,Detailed,IL,34,52,"Parents with preteens + Parents with teenagers (13-17); interests: WhatsApp; Parenting","child_linked",Launch,10%
+Meta,C_Parents_6-8,C,Detailed,IL,28,45,"Parents with early school-age children (06-08)","child_linked",Launch,6%
+Meta,Broad_Advantage+,All,Broad,IL,30,50,"Advantage+ App Campaign - no targeting","child_linked",Launch week 2+,—
+Meta,LAL_ActiveParents_1-3,All,Lookalike,IL,28,55,"LAL 1-3% of child_linked","child_linked",Week 3+,—
+Meta,RT_Waitlist,All,Custom,IL,18,65,"Waitlist list + site visitors 30d","installed",Launch,2%
+Meta,RT_Installed_NoLink,All,Custom,IL,18,65,"install AND NOT child_linked, 1-14d","child_linked",Launch,—
+Google,UAC_Android,All,App campaign,IL,—,—,"Optimize install -> child_linked after 30 conv/week","",Launch,12%
+Google,UAC_iOS,All,App campaign,IL,—,—,"Optimize install -> child_linked","",Launch,5%
+Google,SEARCH_Generic,A/B,Keywords,IL,—,—,"וואטסאפ לילדים; צ'אט לילדים; וואטסאפ בטוח לילדים; אפליקציית מסרים לילדים","apk; פריצה; ריגול; GB",Launch,5%
+Google,SEARCH_Problem,A/B/C,Keywords,IL,—,—,"קבוצת כיתה חרם; הגבלות וואטסאפ לילד; מאיזה גיל וואטסאפ; טלפון ראשון לילד","apk; ריגול",Launch,3%
+Google,YT_Parents_GradeSchool,A/C,Detailed demographics,IL,25,54,"Parents of Grade-Schoolers (6-12) + Custom segment search terms","Made for Kids content; kids channels",Launch,5%
+TikTok,TT_Parenting_Interest,A/C,Interest+Behaviour,IL,25,44,"Family & Parenting; Education; video interactions parenting 15d","",Launch,9%
+TikTok,TT_Spark_Creators,All,Smart+,IL,25,44,"Broad + Spark Ads from creators","",Launch,6%
+ASA,ASA_Brand,All,Exact,IL,—,—,"wa-kids; וואקידס; wakids","",Launch,2%
+ASA,ASA_Category,A/B,Exact+Broad,IL,—,—,"צ'אט לילדים; מסנג'ר לילדים; kids messenger; kids chat; וואטסאפ לילדים","",Launch,6%
+ASA,ASA_Discovery,All,Search Match,IL,—,—,"Search Match on; harvest terms weekly","brand+category terms",Launch,2%
+Taboola,Native_ParentsGuide,A/C,Contextual,IL,—,—,"Ynet/Mako/Walla - parenting & family sections","",Test,3%
