@@ -1,0 +1,70 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python tools/log_event.py *)",
+      "Bash(python3 tools/log_event.py *)",
+      "Bash(python tools/images.py *)",
+      "Bash(python3 tools/images.py *)",
+      "Bash(python tools/landing.py new *)",
+      "Bash(python3 tools/landing.py new *)",
+      "Bash(python tools/landing.py finalize *)",
+      "Bash(python3 tools/landing.py finalize *)",
+      "Bash(python tools/office.py*)",
+      "Bash(python3 tools/office.py*)",
+      "Bash(python tools/meta.py check *)",
+      "Bash(python3 tools/meta.py check *)",
+      "Bash(python tools/meta.py interests *)",
+      "Bash(python3 tools/meta.py interests *)",
+      "Bash(python tools/meta.py insights *)",
+      "Bash(python3 tools/meta.py insights *)"
+    ],
+    "ask": [
+      "Bash(python tools/meta.py * --execute*)",
+      "Bash(python3 tools/meta.py * --execute*)",
+      "Bash(python tools/landing.py deploy *)",
+      "Bash(python3 tools/landing.py deploy *)",
+      "Bash(*vercel*)",
+      "Bash(git push *)",
+      "Bash(git reset *)"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Edit(**/.env)",
+      "Bash(*graph.facebook.com*)",
+      "Bash(rm -rf *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/guard.py\" 2>/dev/null || python \"$CLAUDE_PROJECT_DIR/tools/guard.py\""
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/agent_hook.py\" 2>/dev/null || python \"$CLAUDE_PROJECT_DIR/tools/agent_hook.py\""
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/tools/agent_hook.py\" 2>/dev/null || python \"$CLAUDE_PROJECT_DIR/tools/agent_hook.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

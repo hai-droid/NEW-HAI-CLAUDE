@@ -1,0 +1,24 @@
+{
+  "duration_days": 7,
+  "campaign": {"name": "demo-studio | intro-offer | Leads", "objective": "OUTCOME_LEADS", "special_ad_categories": []},
+  "ad_sets": [
+    {"key": "A", "name": "Broad women 28-45 TLV", "daily_budget": 35, "optimization_goal": "LINK_CLICKS",
+     "targeting": {"geo_locations": {"countries": ["IL"]}, "age_min": 28, "age_max": 45, "genders": [2]}},
+    {"key": "B", "name": "Broad women 28-45 TLV (story)", "daily_budget": 35, "optimization_goal": "LINK_CLICKS",
+     "targeting": {"geo_locations": {"countries": ["IL"]}, "age_min": 28, "age_max": 45, "genders": [2]}}
+  ],
+  "ads": [
+    {"key": "A1", "ad_set": "A", "name": "A1 · pain · c1", "image": "creatives/c1.png",
+     "primary_text": "הגב שלך יושב 9 שעות ביום.\nבסטודיו נשימה זה 50 דקות של תנועה מדויקת, בקבוצה של עד 6.\nשיעור ניסיון ב-49 ₪.",
+     "headline": "שיעור ניסיון ב-49 ₪", "description": "פלורנטין, ת\"א", "cta": "SIGN_UP",
+     "link": "https://example.com/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-22-intro-offer&utm_content=A1"},
+    {"key": "A2", "ad_set": "A", "name": "A2 · proof · c2", "image": "creatives/c2.png",
+     "primary_text": "שש מתאמנות. מדריכה אחת שרואה ומתקנת כל אחת.\nככה נראה פילאטיס מכשירים בקבוצה קטנה.",
+     "headline": "קבוצות של עד 6", "description": "שיעור ניסיון 49 ₪", "cta": "SIGN_UP",
+     "link": "https://example.com/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-22-intro-offer&utm_content=A2"},
+    {"key": "B1", "ad_set": "B", "name": "B1 · time · c3", "image": "creatives/c3.png",
+     "primary_text": "06:45 בבוקר או 20:30 בערב. 50 דקות שהן רק שלך.",
+     "headline": "שיעורי בוקר וערב", "description": "שיעור ניסיון 49 ₪", "cta": "SIGN_UP",
+     "link": "https://example.com/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-22-intro-offer&utm_content=B1"}
+  ]
+}

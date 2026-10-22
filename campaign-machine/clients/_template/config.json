@@ -1,0 +1,23 @@
+{
+  "name": "TODO שם העסק",
+  "language": "he",
+  "brand": {
+    "colors": ["#1E1B4B", "#7C3AED", "#FACC15"],
+    "logo": "assets/logo.png",
+    "font": ""
+  },
+  "safety": {
+    "currency": "ILS",
+    "max_daily_budget": 100,
+    "max_total_budget": 1500
+  },
+  "meta": {
+    "ad_account_id": "",
+    "page_id": "",
+    "pixel_id": "",
+    "instagram_user_id": ""
+  },
+  "landing": {
+    "lead_webhook_url": ""
+  }
+}

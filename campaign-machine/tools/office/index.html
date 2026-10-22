@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>משרד הסוכנים</title>
+<style>
+  :root {
+    --bg: #0f1020; --panel: #181a2e; --line: #2a2d48; --text: #e8e9f5; --muted: #9093b5;
+    --working: #facc15; --done: #34d399; --waiting: #60a5fa; --error: #f87171; --idle: #4b4f75;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Segoe UI", Arial, sans-serif; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+  header h1 { margin: 0; font-size: 1.3rem; }
+  #clock { color: var(--muted); font-variant-numeric: tabular-nums; }
+  main { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; padding: 20px 24px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+  .desk { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 16px; position: relative; transition: border-color .3s; }
+  .desk .emoji { font-size: 2.2rem; }
+  .desk h3 { margin: 6px 0 2px; font-size: 1.05rem; }
+  .desk .role { color: var(--muted); font-size: .82rem; }
+  .desk .msg { margin-top: 10px; font-size: .88rem; min-height: 2.6em; }
+  .pill { position: absolute; top: 14px; left: 14px; font-size: .75rem; padding: 3px 10px; border-radius: 999px; background: var(--idle); color: #fff; }
+  .desk.working { border-color: var(--working); box-shadow: 0 0 24px rgba(250,204,21,.15); }
+  .desk.working .pill { background: var(--working); color: #111; animation: pulse 1.2s infinite; }
+  .desk.done .pill { background: var(--done); color: #111; }
+  .desk.waiting .pill { background: var(--waiting); color: #111; }
+  .desk.error .pill { background: var(--error); }
+  @keyframes pulse { 50% { opacity: .55; } }
+  h2 { font-size: 1rem; color: var(--muted); font-weight: 600; margin: 24px 0 12px; }
+  .feed { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 8px 16px; max-height: 78vh; overflow: auto; }
+  .ev { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+  .ev:last-child { border: 0; }
+  .ev time { color: var(--muted); font-size: .78rem; margin-left: 8px; font-variant-numeric: tabular-nums; }
+  .camp { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin-bottom: 14px; }
+  .camp .title { font-weight: 700; }
+  .camp .client { color: var(--muted); font-size: .85rem; }
+  .steps { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+  .step { font-size: .78rem; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  .step.ok { background: rgba(52,211,153,.15); border-color: var(--done); color: var(--done); }
+  .thumbs { display: flex; gap: 8px; overflow-x: auto; }
+  .thumbs img { height: 120px; border-radius: 8px; }
+  a { color: var(--waiting); }
+  .empty { color: var(--muted); padding: 16px 0; }
+</style>
+</head>
+<body>
+<header><h1>🏢 משרד הסוכנים · שידור חי</h1><span id="clock"></span></header>
+<main>
+  <div>
+    <div class="team" id="team"></div>
+    <h2>קמפיינים</h2>
+    <div id="campaigns"></div>
+  </div>
+  <div>
+    <h2 style="margin-top:0">מה קורה עכשיו</h2>
+    <div class="feed" id="feed"></div>
+  </div>
+</main>
+<script>
+const TEAM = {
+  ceo: ["👔", "המנכ\"ל", "מקבל בריף ומחלק משימות"],
+  copywriter: ["✍️", "הקופירייטרית", "זוויות, הוקים ומודעות"],
+  creative: ["🎨", "הקריאייטיבית", "קריאייטיבים במיתוג"],
+  campaigner: ["🚀", "הקמפיינר", "קמפיין ב-Meta (PAUSED)"],
+  landing: ["🖥️", "בונה דפי הנחיתה", "דף, טופס ופיקסל"],
+  analyst: ["📊", "האנליסט", "נתונים → משימות תיקון"],
+  human: ["🧑", "אתה", "בודק ומאשר"],
+};
+const LABEL = { idle: "idle", working: "working…", done: "done", waiting: "ממתין", queued: "queued", error: "error" };
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const hhmm = ts => ts ? ts.slice(11, 19) : "";
+
+async function tick() {
+  let s;
+  try { s = await (await fetch("/api/state")).json(); } catch { return; }
+  document.getElementById("team").innerHTML = Object.entries(s.agents).map(([id, a]) => {
+    const [emoji, name, role] = TEAM[id];
+    return `<div class="desk ${a.status}"><span class="pill">${LABEL[a.status] || a.status}</span>
+      <div class="emoji">${emoji}</div><h3>${name}</h3><div class="role">${role}</div>
+      <div class="msg">${esc(a.msg)}</div></div>`;
+  }).join("");
+  document.getElementById("feed").innerHTML = s.events.length ? s.events.map(e => {
+    const [emoji, name] = TEAM[e.agent] || ["•", e.agent];
+    return `<div class="ev"><time>${hhmm(e.ts)}</time>${emoji} <b>${name}</b> · ${esc(e.msg)}
+      ${e.client ? `<div class="client" style="color:var(--muted);font-size:.78rem">${esc(e.client)} / ${esc(e.campaign || "")}</div>` : ""}</div>`;
+  }).join("") : `<div class="empty">עדיין שקט. הריצו /campaign ב-Claude Code.</div>`;
+  document.getElementById("campaigns").innerHTML = s.campaigns.length ? s.campaigns.map(c => `
+    <div class="camp"><div class="title" dir="ltr" style="text-align:right">${esc(c.campaign)}</div><div class="client" dir="ltr" style="text-align:right">${esc(c.client)}</div>
+      <div class="steps">${c.steps.map(st => `<span class="step ${st.done ? "ok" : ""}">${st.done ? "✓ " : ""}${st.label}</span>`).join("")}</div>
+      ${c.images.length ? `<div class="thumbs">${c.images.map(i => `<img src="/files/${encodeURI(i)}" alt="">`).join("")}</div>` : ""}
+      ${c.landing_url ? `<p>🖥️ <a href="${esc(c.landing_url)}" target="_blank">${esc(c.landing_url)}</a></p>` : ""}
+    </div>`).join("") : `<div class="empty">אין עדיין קמפיינים.</div>`;
+}
+setInterval(() => document.getElementById("clock").textContent = new Date().toLocaleTimeString("he-IL"), 1000);
+setInterval(tick, 2000);
+tick();
+</script>
+</body>
+</html>

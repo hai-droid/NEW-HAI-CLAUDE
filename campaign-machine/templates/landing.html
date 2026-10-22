@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- LANDING AGENT: replace every double-square-bracket field with real content. Keep the double-curly placeholders – tools/landing.py fills them. -->
+  <title>[[כותרת הדף]]</title>
+  <meta name="description" content="[[תיאור קצר לגוגל ולשיתוף]]">
+  <meta property="og:title" content="[[כותרת לשיתוף]]">
+  <meta property="og:description" content="[[תיאור לשיתוף]]">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --dark: {{COLOR_DARK}}; --main: {{COLOR_MAIN}}; --accent: {{COLOR_ACCENT}}; --bg: #ffffff; --text: #1f2937; --muted: #6b7280; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Heebo, Arial, sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    header.hero { background: linear-gradient(135deg, var(--dark), var(--main)); color: #fff; padding: 72px 0 88px; }
+    .hero h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.15; margin: 0 0 16px; font-weight: 800; }
+    .hero p { font-size: 1.25rem; opacity: .92; max-width: 640px; margin: 0 0 28px; }
+    .btn { display: inline-block; background: var(--accent); color: #111; font-weight: 800; padding: 16px 34px; border-radius: 999px; text-decoration: none; border: 0; font-size: 1.1rem; cursor: pointer; font-family: inherit; }
+    section { padding: 64px 0; }
+    h2 { font-size: clamp(1.6rem, 3.5vw, 2.3rem); margin: 0 0 24px; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card { background: #f8f7ff; border-radius: 18px; padding: 24px; }
+    .card h3 { margin: 0 0 8px; }
+    .proof { background: #faf9f6; }
+    blockquote { margin: 0; font-size: 1.1rem; }
+    blockquote cite { display: block; color: var(--muted); font-style: normal; margin-top: 8px; }
+    form { background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 10px 40px rgba(0,0,0,.08); max-width: 520px; }
+    label { display: block; font-weight: 600; margin: 14px 0 6px; }
+    input { width: 100%; padding: 14px; border: 1px solid #d1d5db; border-radius: 12px; font: inherit; }
+    .consent { font-size: .85rem; color: var(--muted); margin-top: 12px; }
+    .thanks { display: none; font-size: 1.3rem; font-weight: 700; }
+    details { border-bottom: 1px solid #e5e7eb; padding: 16px 0; }
+    summary { font-weight: 700; cursor: pointer; }
+    footer { padding: 32px 0; color: var(--muted); font-size: .9rem; text-align: center; }
+  </style>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    if ('{{PIXEL_ID}}') { fbq('init', '{{PIXEL_ID}}'); fbq('track', 'PageView'); }
+  </script>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>[[הכותרת – חייבת להתאים להוק המנצח של המודעה]]</h1>
+      <p>[[תת-כותרת: למי זה ומה יוצא לו מזה]]</p>
+      <a class="btn" href="#lead">[[טקסט הכפתור]]</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <h2>[[כותרת התועלות]]</h2>
+      <div class="grid">
+        <div class="card"><h3>[[תועלת 1]]</h3><p>[[הסבר]]</p></div>
+        <div class="card"><h3>[[תועלת 2]]</h3><p>[[הסבר]]</p></div>
+        <div class="card"><h3>[[תועלת 3]]</h3><p>[[הסבר]]</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="wrap">
+      <h2>[[כותרת הוכחה חברתית]]</h2>
+      <!-- Only real testimonials from clients/<client>/business.md. Never invent. Delete the section if there are none. -->
+      <blockquote>[[ציטוט אמיתי]]<cite>[[שם ותפקיד]]</cite></blockquote>
+    </div>
+  </section>
+
+  <section id="lead">
+    <div class="wrap">
+      <h2>[[כותרת הטופס]]</h2>
+      <form id="lead-form">
+        <label for="name">שם מלא</label>
+        <input id="name" name="name" required autocomplete="name">
+        <label for="phone">טלפון</label>
+        <input id="phone" name="phone" type="tel" required autocomplete="tel" pattern="[0-9\-\+ ]{9,15}">
+        <label for="email">אימייל</label>
+        <input id="email" name="email" type="email" autocomplete="email">
+        <p class="consent">בשליחת הטופס אני מאשר/ת ש-[[שם העסק]] תיצור איתי קשר בנוגע לפנייה.</p>
+        <button class="btn" type="submit">[[טקסט כפתור השליחה]]</button>
+      </form>
+      <p class="thanks" id="thanks">[[הודעת תודה – מה קורה עכשיו]]</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>שאלות נפוצות</h2>
+      <details><summary>[[שאלה]]</summary><p>[[תשובה]]</p></details>
+      <details><summary>[[שאלה]]</summary><p>[[תשובה]]</p></details>
+      <details><summary>[[שאלה]]</summary><p>[[תשובה]]</p></details>
+    </div>
+  </section>
+
+  <footer>© [[שם העסק]] · [[קישור למדיניות פרטיות]]</footer>
+
+  <script>
+    const WEBHOOK = '{{LEAD_WEBHOOK}}';
+    const params = new URLSearchParams(location.search);
+    document.getElementById('lead-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target));
+      Object.assign(data, {
+        client: '{{CLIENT}}', campaign: '{{CAMPAIGN}}', page: location.href,
+        utm_source: params.get('utm_source') || '', utm_campaign: params.get('utm_campaign') || '',
+        utm_content: params.get('utm_content') || '', submitted_at: new Date().toISOString()
+      });
+      try {
+        if (WEBHOOK) await fetch(WEBHOOK, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(data) });
+      } catch (err) { console.error('lead webhook failed', err); }
+      if (window.fbq) fbq('track', 'Lead');
+      e.target.style.display = 'none';
+      document.getElementById('thanks').style.display = 'block';
+    });
+  </script>
+</body>
+</html>

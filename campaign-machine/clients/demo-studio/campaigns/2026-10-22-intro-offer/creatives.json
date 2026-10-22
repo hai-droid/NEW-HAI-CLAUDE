@@ -1,0 +1,13 @@
+{
+  "creatives": [
+    {"id": "c1", "ad": "AD1", "format": "feed", "layout": "bottom",
+     "bg_prompt": "Small bright pilates reformer studio, morning sunlight, two women in their 30s exercising calmly, sage green and warm beige tones",
+     "headline": "הגב שלך יושב 9 שעות ביום", "sub": "50 דקות שמחזירות אותו למקום", "cta": "שיעור ניסיון ב-49 ₪"},
+    {"id": "c2", "ad": "AD2", "format": "feed", "layout": "bottom",
+     "bg_prompt": "Pilates instructor gently correcting a student's posture on a reformer, soft natural light, calm atmosphere",
+     "headline": "שש מתאמנות. מדריכה אחת שרואה את כולן.", "sub": "קבוצות קטנות בפלורנטין", "cta": "לשריון מקום"},
+    {"id": "c3", "ad": "AD3", "format": "story", "layout": "top",
+     "bg_prompt": "Empty pilates studio at dawn, reformers in a row, large windows, golden hour light, minimal",
+     "headline": "06:45 בבוקר. הכי שקט בעיר.", "sub": "שיעורי בוקר וערב מאוחרים", "cta": "לבחור שעה"}
+  ]
+}

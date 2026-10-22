@@ -1,0 +1,14 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# runtime
+office/events.jsonl
+__pycache__/
+*.pyc
+.vercel/
+.DS_Store
+
+# local Claude Code settings
+.claude/settings.local.json
