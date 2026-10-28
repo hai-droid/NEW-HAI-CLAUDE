@@ -1,0 +1,16 @@
+{
+  "election": {
+    "name": "הבחירות לכנסת ה-26",
+    "total_seats": 120,
+    "threshold_percent": 3.25
+  },
+  "source": {
+    "base_url": "https://votes26.bechirot.gov.il/",
+    "paths": ["nationalresults", ""],
+    "follow_links_regex": "national|ארצי|results",
+    "max_pages": 8
+  },
+  "surplus_agreements": [],
+  "history_limit": 500,
+  "refresh_seconds": 60
+}

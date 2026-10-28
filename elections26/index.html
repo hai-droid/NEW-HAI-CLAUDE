@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תוצאות בחירות 26</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <h1 id="title">תוצאות הבחירות לכנסת ה-26</h1>
+    <p class="meta">
+      <span class="live" id="live"><i></i><b id="liveText">טוען…</b></span>
+      <span id="updated"></span>
+      <span class="badge" id="seatsSource"></span>
+    </p>
+  </div>
+  <div class="actions">
+    <button id="refresh" type="button" title="רענון עכשיו">רענון ⟳</button>
+    <button id="theme" type="button" title="מצב כהה/בהיר">◐</button>
+  </div>
+</header>
+
+<div class="banner error" id="errorBanner" hidden></div>
+
+<main>
+  <section class="kpis" id="kpis" aria-label="נתונים כלליים"></section>
+
+  <section class="grid2">
+    <article class="card">
+      <h2>חלוקת 120 המנדטים</h2>
+      <div id="hemicycle" class="hemi"></div>
+      <ul class="legend" id="legend"></ul>
+    </article>
+
+    <article class="card">
+      <h2>מנדטים לפי רשימה</h2>
+      <div id="seatBars" class="bars"></div>
+    </article>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <h2>בונה קואליציה</h2>
+      <button id="clearCoalition" type="button" class="link">ניקוי</button>
+    </div>
+    <p class="hint">בחרו רשימות כדי לבדוק אם יש להן רוב של 61 מנדטים.</p>
+    <div class="coalition-meter" id="coalitionMeter"></div>
+    <div class="chips" id="coalitionChips"></div>
+  </section>
+
+  <section class="card">
+    <h2>מגמת המנדטים לאורך הספירה</h2>
+    <div id="trend" class="trend"></div>
+    <ul class="legend" id="trendLegend"></ul>
+  </section>
+
+  <section class="card">
+    <h2>כל הרשימות</h2>
+    <div class="table-wrap">
+      <table class="results" id="table">
+        <thead><tr>
+          <th>רשימה</th><th>אותיות</th><th class="num">קולות</th>
+          <th class="pct-col">אחוז</th><th class="num">מנדטים</th><th class="num">שינוי</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <p class="hint" id="thresholdNote"></p>
+  </section>
+</main>
+
+<footer class="foot">
+  מקור הנתונים: <a id="sourceLink" href="https://votes26.bechirot.gov.il/" target="_blank" rel="noopener">ועדת הבחירות המרכזית</a>.
+  מתעדכן אוטומטית. כשהאתר לא מפרסם מנדטים, הם מחושבים לפי באדר-עופר והסכמי העודפים שבקובץ ההגדרות.
+</footer>
+
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
